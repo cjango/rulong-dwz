@@ -64,6 +64,16 @@ class CreateAdminTables extends Migration
             $table->timestamps();
             $table->primary(['role_id', 'admin_id']);
         });
+
+        Schema::create('storages', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name', 255);
+            $table->string('hash', 32)->index();
+            $table->string('type', 32);
+            $table->integer('size')->unsigned();
+            $table->string('path', 255);
+            $table->timestamp('created_at')->nullable();
+        });
     }
 
     /**

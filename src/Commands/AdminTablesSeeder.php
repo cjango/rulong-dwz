@@ -28,14 +28,14 @@ class AdminTablesSeeder extends Seeder
         Menu::truncate();
 
         $menus = [
-            ['id' => 1, 'parent_id' => 0, 'title' => '系统管理', 'icon' => 'fa-cogs', 'sort' => 99, 'uri' => null],
-            ['id' => 10, 'parent_id' => 1, 'title' => '用户管理', 'icon' => 'fa-user', 'sort' => 1, 'uri' => 'RuLong.admins.index'],
+            ['id' => 1, 'parent_id' => 0, 'title' => '系统管理', 'sort' => 99, 'uri' => null],
+            ['id' => 10, 'parent_id' => 1, 'title' => '用户管理', 'sort' => 1, 'uri' => 'RuLong.admins.index'],
             ['id' => 11, 'parent_id' => 10, 'title' => '新增用户', 'sort' => 1, 'uri' => 'Rulong.admins.create'],
             ['id' => 12, 'parent_id' => 10, 'title' => '新增-保存', 'sort' => 2, 'uri' => 'Rulong.admins.store'],
             ['id' => 13, 'parent_id' => 10, 'title' => '编辑用户', 'sort' => 3, 'uri' => 'Rulong.admins.edit'],
             ['id' => 14, 'parent_id' => 10, 'title' => '编辑-保存', 'sort' => 4, 'uri' => 'Rulong.admins.update'],
             ['id' => 15, 'parent_id' => 10, 'title' => '删除用户', 'sort' => 5, 'uri' => 'Rulong.admins.destroy'],
-            ['id' => 20, 'parent_id' => 1, 'title' => '角色管理', 'icon' => 'fa-group', 'sort' => 2, 'uri' => 'RuLong.roles.index'],
+            ['id' => 20, 'parent_id' => 1, 'title' => '角色管理', 'sort' => 2, 'uri' => 'RuLong.roles.index'],
             ['id' => 21, 'parent_id' => 20, 'title' => '新增角色', 'sort' => 1, 'uri' => 'Rulong.roles.create'],
             ['id' => 22, 'parent_id' => 20, 'title' => '新增-保存', 'sort' => 2, 'uri' => 'Rulong.roles.store'],
             ['id' => 23, 'parent_id' => 20, 'title' => '编辑角色', 'sort' => 3, 'uri' => 'Rulong.roles.edit'],
@@ -45,13 +45,15 @@ class AdminTablesSeeder extends Seeder
             ['id' => 27, 'parent_id' => 20, 'title' => '用户授权', 'sort' => 7, 'uri' => 'Rulong.roles.users'],
             ['id' => 28, 'parent_id' => 20, 'title' => '增加用户授权', 'sort' => 8, 'uri' => 'Rulong.roles.auth'],
             ['id' => 29, 'parent_id' => 20, 'title' => '移除用户授权', 'sort' => 9, 'uri' => 'Rulong.roles.remove'],
-            ['id' => 30, 'parent_id' => 1, 'title' => '菜单管理', 'icon' => 'fa-bars', 'sort' => 3, 'uri' => 'RuLong.menus.index'],
+            ['id' => 30, 'parent_id' => 1, 'title' => '菜单管理', 'sort' => 3, 'uri' => 'RuLong.menus.index'],
             ['id' => 31, 'parent_id' => 30, 'title' => '新增菜单', 'sort' => 1, 'uri' => 'Rulong.menus.create'],
             ['id' => 32, 'parent_id' => 30, 'title' => '新增-保存', 'sort' => 2, 'uri' => 'Rulong.menus.store'],
             ['id' => 33, 'parent_id' => 30, 'title' => '编辑菜单', 'sort' => 3, 'uri' => 'Rulong.menus.edit'],
             ['id' => 34, 'parent_id' => 30, 'title' => '编辑-保存', 'sort' => 4, 'uri' => 'Rulong.menus.update'],
             ['id' => 35, 'parent_id' => 30, 'title' => '删除菜单', 'sort' => 5, 'uri' => 'Rulong.menus.destroy'],
-            ['id' => 40, 'parent_id' => 1, 'title' => '系统日志', 'icon' => 'fa-list', 'sort' => 4, 'uri' => 'RuLong.logs.index'],
+            ['id' => 40, 'parent_id' => 1, 'title' => '系统日志', 'sort' => 4, 'uri' => 'RuLong.logs.index'],
+            ['id' => 50, 'parent_id' => 1, 'title' => '文件存储', 'sort' => 5, 'uri' => 'RuLong.storages.index'],
+            ['id' => 51, 'parent_id' => 50, 'title' => '测试上传', 'sort' => 1, 'uri' => 'RuLong.storages.test'],
         ];
         foreach ($menus as $menu) {
             Menu::create($menu);
