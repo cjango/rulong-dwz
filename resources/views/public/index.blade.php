@@ -9,7 +9,7 @@
     <link href="{{ admin_assets('themes/default/style.css') }}" rel="stylesheet" type="text/css" media="screen"/>
     <link href="{{ admin_assets('themes/css/core.css') }}" rel="stylesheet" type="text/css" media="screen"/>
     <link href="{{ admin_assets('themes/css/print.css') }}" rel="stylesheet" type="text/css" media="print"/>
-    <link href="{{ admin_assets('uploadify/css/uploadify.css') }}?v={{ uniqid() }}" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="{{ admin_assets('uploadify/css/uploadify.css') }}" rel="stylesheet" type="text/css" media="screen"/>
 
     <!--[if IE]>
     <link href="{{ admin_assets('themes/css/ieHack.css') }}" rel="stylesheet" type="text/css" media="screen"/>
@@ -124,27 +124,8 @@
                             <p>欢迎：{{ Admin::user()->nickname }}，上次登录时间：{{ Admin::user()->last_login_time }}，上次登录地址：{{ Admin::user()->last_login_ip }}。</p>
                         </div>
                         <div class="pageFormContent" layoutH="80">
-                            <input id="sd" type="file" name="image"
-                                uploaderOption="{
-                                    swf: '{{ admin_assets('uploadify/scripts/uploadify.swf') }}',
-                                    uploader: '{{ route('RuLong.storages.upload', ['name'=>'fileup']) }}',
-                                    formData: {_token: '{{ csrf_token() }}'},
-                                    fileObjName: 'fileup',
-                                    buttonText: '请选择文件',
-                                    fileSizeLimit: '20MB',
-                                    auto: true,
-                                    multi: false,
-                                    onUploadSuccess:uploadifySuccess
-                                }"
-                            />
+
                         </div>
-                        <script type="text/javascript">
-                        function uploadifySuccess(file, data, response) {
-                            console.log(file);
-                            console.log(data);
-                            console.log(response);
-                        }
-                        </script>
                     </div>
                 </div>
             </div>
