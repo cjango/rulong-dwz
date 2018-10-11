@@ -11,14 +11,13 @@
     <div id="login">
         <div id="login_header">
             <h1 class="login_logo">
-                <a href=""><img src="{{ admin_assets('themes/default/images/login_logo.gif') }}" /></a>
+                <a href=""><img src="{{ admin_assets('themes/default/images/login_logo.png') }}" /></a>
             </h1>
             <div class="login_headerContent">
                 <div class="navList">
                     <ul>
-                        <li><a href="">设为首页</a></li>
-                        <li><a href="">反馈</a></li>
-                        <li><a href="" target="_blank">帮助</a></li>
+                        <li><a href="https://www.cjango.com/" target="_blank">反馈</a></li>
+                        <li><a href="https://www.cjango.com/" target="_blank">帮助</a></li>
                     </ul>
                 </div>
                 <h2 class="login_title"><img src="{{ admin_assets('themes/default/images/login_title.png') }}" /></h2>
@@ -49,15 +48,14 @@
             <div class="login_banner"><img src="{{ admin_assets('themes/default/images/login_banner.jpg') }}" /></div>
             <div class="login_main">
                 <ul class="helpList">
-                    <li><a href="#">下载驱动程序</a></li>
-                    <li><a href="#">如何安装密钥驱动程序？</a></li>
                     <li><a href="#">忘记密码怎么办？</a></li>
-                    <li><a href="#">为什么登录失败？</a></li>
+                    <li><a href="#">忘记密码怎么办？</a></li>
+                    <li><a href="#">忘记密码怎么办？</a></li>
                 </ul>
                 <div class="login_inner">
-                    <p>您可以使用 网易网盘 ，随时存，随地取</p>
-                    <p>您还可以使用 闪电邮 在桌面随时提醒邮件到达，快速收发邮件。</p>
-                    <p>在 百宝箱 里您可以查星座，订机票，看小说，学做菜…</p>
+                    <p>快速开发后台框架</p>
+                    <p>基于PHP 7.1+，更快的运行速度</p>
+                    <p>Laravel + DwzUI</p>
                 </div>
             </div>
         </div>
@@ -73,9 +71,7 @@
 
         $('.ajax-post').click(function(event) {
             event.preventDefault();
-
             var $form = $(this).parents('form');
-
             $.post($form.action, $form.serialize(), function(res) {
                 if (res.statusCode == 200) {
                     window.location.href = "{{  route('RuLong.index') }}";
