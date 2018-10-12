@@ -44,7 +44,7 @@ class ServiceProvider extends LaravelServiceProvider
             $this->publishes([__DIR__ . '/../config/rulong.php' => config_path('rulong.php')]);
             $this->publishes([__DIR__ . '/../config/captcha.php' => config_path('captcha.php')]);
 
-            $this->publishes([__DIR__ . '/../resources/assets' => public_path('assets/rulong')]);
+            $this->publishes([__DIR__ . '/../resources/assets' => public_path('assets/dwzui')]);
             $this->publishes([__DIR__ . '/../database/migrations' => database_path('migrations')]);
         }
 
