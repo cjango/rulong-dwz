@@ -1,5 +1,5 @@
 <div class="pageContent">
-    <form method="post" action="{{ route('RuLong.menus.update') }}" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
+    <form method="post" action="{{ route('RuLong.menus.update', $menu) }}" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone)">
         <div class="pageFormContent" layoutH="60">
             <div class="unit">
                 <label>菜单名称：</label>
