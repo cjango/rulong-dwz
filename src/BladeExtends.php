@@ -17,7 +17,7 @@ class BladeExtends
             $elementId = $parse[2] ?? 'uEditor';
 
             $editor = '<script id="' . self::stripParentheses($elementId) . '" name="' . self::stripParentheses($name) . '" type="text/plain">';
-            $editor .= '<?php echo (' . self::stripParentheses($content) . '); ?>';
+            $editor .= '<?php echo (' . ($content ?: '""') . '); ?>';
             $editor .= '</script>';
             $editor .= '<script type="text/javascript">';
             $editor .= 'var ue = UE.getEditor("' . self::stripParentheses($elementId) . '", {autoHeightEnabled:false,initialFrameHeight:400,zIndex:100,saveInterval:10000,serverUrl:"' . route('RuLong.ueditor.server', ['_token' => csrf_token()]) . '"});';
