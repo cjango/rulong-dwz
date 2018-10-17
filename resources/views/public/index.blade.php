@@ -41,7 +41,6 @@
                 debug: false,
                 callback: function() {
                     initEnv();
-                    $("#themeList").theme({themeBase:"themes"});
                 }
             });
         });
