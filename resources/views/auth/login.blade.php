@@ -25,7 +25,7 @@
         </div>
         <div id="login_content">
             <div class="loginForm">
-                <form action="{{ url()->current() }}" method="post">
+                <form action="{{ url()->current() }}" method="post" onsubmit="$('.verify').click();;return false;">
                     <p>
                         <label>用户名：</label>
                         <input type="text" name="username" size="20" class="login_input" />
@@ -41,7 +41,7 @@
                     </p>
                     <div class="login_bar">
                         @csrf
-                        <input class="sub ajax-post" type="button" value=" " />
+                        <input class="sub ajax-post" type="submit" value=" " />
                     </div>
                 </form>
             </div>
@@ -65,6 +65,7 @@
     </div>
     <script type="text/javascript" src="{{ admin_assets('js/jquery-1.11.3.min.js') }}"></script>
     <script type="text/javascript">
+
         $('.verify').click(function() {
             $(this).attr('src', '{{ captcha_src() }}&_='+ Math.random());
         });
