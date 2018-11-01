@@ -12,7 +12,7 @@ class MenuController extends Controller
     public function index(Request $request)
     {
         $keyword    = $request->keyword;
-        $parent_id  = $request->get('parent_id', 0);
+        $parent_id  = $request->get('parent_id', 0) ?: 0;
         $numPerPage = $request->numPerPage ?: 30;
 
         $menuTree = Menu::with(['children'])->where('parent_id', 0)->orderBy('sort', 'asc')->get();
