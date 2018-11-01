@@ -2,6 +2,7 @@
 
 namespace RuLong\Panel\Commands;
 
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class InstallCommand extends Command
@@ -15,6 +16,13 @@ class InstallCommand extends Command
 
     public function handle()
     {
+        $lock = config('rulong.directory') . '/installed.lock';
+
+        if (file_exists($lock)) {
+            $this->warn("The Admin Module allready installed!");
+            return;
+        }
+
         $this->call('vendor:publish', [
             '--provider' => 'RuLong\Panel\ServiceProvider',
         ]);
@@ -22,6 +30,8 @@ class InstallCommand extends Command
         self::initDatabase();
 
         self::initModule();
+
+        self::createLockFile();
 
         $this->info('Init admin success.');
     }
@@ -57,6 +67,19 @@ class InstallCommand extends Command
         } else {
             $this->makeDir('Controllers');
             $this->info("Controllers directory was created.");
+        }
+
+        $baseController = $this->directory . '/Controllers/Controller.php';
+
+        if (file_exists($baseController)) {
+            $this->warn("BaseController already exists !");
+        } else {
+            $contents = $this->getStub('BaseController');
+            $this->laravel['files']->put(
+                $baseController,
+                str_replace('DummyNamespace', config('rulong.route.namespace'), $contents)
+            );
+            $this->info('BaseController file was created: ' . str_replace(base_path(), '', $baseController));
         }
 
         $homeController = $this->directory . '/Controllers/HomeController.php';
@@ -102,6 +125,17 @@ class InstallCommand extends Command
             $contents = $this->getStub('routes');
             $this->laravel['files']->put($file, $contents);
             $this->info('Routes file was created: ' . str_replace(base_path(), '', $file));
+        }
+    }
+
+    private function createLockFile()
+    {
+        $file = $this->directory . '/installed.lock';
+        if (file_exists($file)) {
+            $this->warn("Lock file already exists !");
+        } else {
+            $this->laravel['files']->put($file, Carbon::now());
+            $this->info('Lock file was created');
         }
     }
 

@@ -32,6 +32,7 @@
                                 <input type="text" name="keyword" value="{{ Request::input('keyword') }}"/>
                             </td>
                             <td>
+                                <input type="hidden" name="parent_id" value="{{ Request::get('parent_id') }}">
                                 <div class="buttonActive"><div class="buttonContent"><button type="submit">检索结果</button></div></div>
                             </td>
                         </tr>
@@ -41,7 +42,11 @@
         </div>
         <div class="panelBar">
             <ul class="toolBar">
-                <li><a class="add" href="{{ route('RuLong.menus.create') }}" target="dialog" mask="true" width="400" height="250" rel="diaolog_{{ time() }}" title="添加菜单"><span>添加</span></a></li>
+                @if (Request::get('parent_id'))
+                <li><a class="add" href="{{ route('RuLong.menus.create', ['parent_id' => Request::get('parent_id')]) }}" target="dialog" mask="true" width="400" height="250" rel="diaolog_{{ time() }}" title="添加菜单"><span>添加菜单</span></a></li>
+                @else
+                <li><a class="add" href="{{ route('RuLong.menus.create') }}" target="dialog" mask="true" width="400" height="250" rel="diaolog_{{ time() }}" title="添加菜单"><span>添加菜单</span></a></li>
+                @endif
             </ul>
         </div>
         <table class="table" width="100%" layoutH="112">

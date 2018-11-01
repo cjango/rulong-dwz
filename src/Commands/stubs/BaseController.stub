@@ -1,0 +1,10 @@
+<?php
+
+namespace DummyNamespace;
+
+use RuLong\Panel\Controllers\Controller as BaseController;
+
+class Controller extends BaseController
+{
+
+}

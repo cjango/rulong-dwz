@@ -5,17 +5,26 @@
  */
 return [
 
-    'title'      => 'R.Admin',
+    'title'       => 'R.Admin',
 
-    'directory'  => app_path('Admin'),
+    'directory'   => app_path('Admin'),
 
-    'route'      => [
+    'desc'        => '<p>快速开发后台框架</p><p>基于PHP 7.1+，更快的运行速度</p><p>Laravel + DwzUI</p>',
+
+    'login_helps' => [
+        [
+            'title' => '忘记密码怎么办？',
+            'url'   => 'https://www.cjango.com/',
+        ],
+    ],
+
+    'route'       => [
         'prefix'     => 'admin',
         'middleware' => ['web', 'rulong'],
         'namespace'  => 'App\\Admin\\Controllers',
     ],
 
-    'auth'       => [
+    'auth'        => [
         'guards'    => [
             'rulong' => [
                 'driver'   => 'session',
@@ -31,7 +40,7 @@ return [
         ],
     ],
 
-    'logs'       => [
+    'logs'        => [
         'enable' => true,
         'except' => [
             '/',
@@ -40,7 +49,7 @@ return [
             'logs*',
         ],
     ],
-    'permission' => [
+    'permission'  => [
         'except' => [
             '/',
             'auth*',
@@ -49,7 +58,7 @@ return [
         ],
     ],
 
-    'ueditor'    => [
+    'ueditor'     => [
         'imageActionName'         => 'uploadImage',
         'imageFieldName'          => 'upfile',
         'imageMaxSize'            => 2048000,

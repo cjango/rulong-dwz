@@ -21,7 +21,7 @@
 <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
-            <li><a class="add" href="{{ route('RuLong.admins.create') }}" mask="true" rel="dialog_{{ time() }}" target="dialog" width="400" height="240" title="添加用户"><span>添加</span></a></li>
+            <li><a class="add" href="{{ route('RuLong.admins.create') }}" mask="true" rel="dialog_{{ time() }}" target="dialog" width="400" height="240" title="添加用户"><span>添加用户</span></a></li>
         </ul>
     </div>
 

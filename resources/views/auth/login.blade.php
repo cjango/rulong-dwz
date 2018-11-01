@@ -48,14 +48,12 @@
             <div class="login_banner"><img src="{{ admin_assets('themes/default/images/login_banner.jpg') }}" /></div>
             <div class="login_main">
                 <ul class="helpList">
-                    <li><a href="#">忘记密码怎么办？</a></li>
-                    <li><a href="#">忘记密码怎么办？</a></li>
-                    <li><a href="#">忘记密码怎么办？</a></li>
+                    @foreach (config('rulong.login_helps') as $help)
+                    <li><a target="_blank" href="{!! $help['url'] ?? '###' !!}" title="">{!! $help['title'] !!}</a></li>
+                    @endforeach
                 </ul>
                 <div class="login_inner">
-                    <p>快速开发后台框架</p>
-                    <p>基于PHP 7.1+，更快的运行速度</p>
-                    <p>Laravel + DwzUI</p>
+                    {!! config('rulong.desc') !!}
                 </div>
             </div>
         </div>

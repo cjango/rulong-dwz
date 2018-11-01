@@ -17,7 +17,7 @@
 <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
-            <li><a class="add" href="{{ route('RuLong.roles.create') }}" target="dialog" rel="dialog_{{ uniqid() }}" mask="true" width="400" height="240" title="添加角色"><span>添加</span></a></li>
+            <li><a class="add" href="{{ route('RuLong.roles.create') }}" target="dialog" rel="dialog_{{ uniqid() }}" mask="true" width="400" height="240" title="添加角色"><span>添加角色</span></a></li>
         </ul>
     </div>
 

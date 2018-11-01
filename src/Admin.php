@@ -42,7 +42,7 @@ class Admin
             ->group(function ($router) {
                 $router->match(['get', 'post'], 'auth/login', 'AuthController@login')->name('auth.login');
                 $router->match(['get', 'post'], 'auth/login_dialog', 'AuthController@loginDialog')->name('auth.login.dialog');
-                $router->post('auth/logout', 'AuthController@logout')->name('auth.logout');
+                $router->get('auth/logout', 'AuthController@logout')->name('auth.logout');
                 $router->get('/', 'IndexController@index')->name('index');
                 $router->match(['get', 'post'], 'password', 'IndexController@password')->name('password');
 
