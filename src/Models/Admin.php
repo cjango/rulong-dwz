@@ -10,11 +10,7 @@ class Admin extends Authenticatable
 {
     use Notifiable, SoftDeletes;
 
-    protected $fillable = [
-        'username',
-        'password',
-        'nickname',
-    ];
+    protected $guarded = [];
 
     protected $hidden = [
         'password',

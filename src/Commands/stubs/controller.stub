@@ -3,12 +3,12 @@
 namespace DummyNamespace;
 
 use Illuminate\Http\Request;
-use RuLong\Panel\Controllers\Controller;
+use App\Models\ModelName;
 
 class ControllerName extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
     }
 
@@ -20,19 +20,19 @@ class ControllerName extends Controller
     {
     }
 
-    public function show($id)
+    public function show(ModelName $model)
     {
     }
 
-    public function edit($id)
+    public function edit(ModelName $model)
     {
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $model)
     {
     }
 
-    public function destroy($id)
+    public function destroy(ModelName $model)
     {
     }
 }

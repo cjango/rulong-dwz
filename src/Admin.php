@@ -59,7 +59,8 @@ class Admin
                 $router->get('storages/test', 'StorageController@test')->name('storages.test');
                 $router->post('storages/{name}', 'StorageController@upload')->name('storages.upload');
 
-                $router->match(['get', 'post'], 'ueditor/server', 'UeditorController@server')->name('ueditor.server');
             });
+        // 加了中间件，无法获取session，很难搞
+        Route::match(['get', 'post'], config('rulong.route.prefix') . '/ueditor/server', 'RuLong\Panel\Controllers\UeditorController@server')->name('RuLong.ueditor.server');
     }
 }

@@ -6,17 +6,21 @@
         <ul class="tree treeFolder expand" layoutH="36">
             @foreach($menuTree as $menu)
             <li><a>{{ $menu->title }}</a>
+                @if ($menu->children->count())
                 <ul>
                     @foreach($menu->children as $child)
                     <li><a href="" title="">{{ $child->title }}</a>
-                        @foreach($child->children as $son)
+                        @if ($child->children->count())
                         <ul>
+                            @foreach($child->children as $son)
                             <li><a href="" title="">{{ $son->title }}</a></li>
+                            @endforeach
                         </ul>
-                        @endforeach
                     </li>
+                    @endif
                     @endforeach
                 </ul>
+                @endif
             </li>
             @endforeach
         </ul>

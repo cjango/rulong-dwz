@@ -46,7 +46,11 @@ class MakeCommand extends Command
             $contents = $this->getStub('controller');
             $this->laravel['files']->put(
                 $file,
-                str_replace(['DummyNamespace', 'ControllerName'], [config('rulong.route.namespace'), $controllerName . 'Controller'], $contents)
+                str_replace(
+                    ['DummyNamespace', 'ControllerName', 'ModelName', '$model'],
+                    [config('rulong.route.namespace'), $controllerName . 'Controller', $controllerName, '$' . strtolower($controllerName)],
+                    $contents
+                )
             );
             $this->info('Controller file was created: ' . str_replace(base_path(), '', $file));
         }
