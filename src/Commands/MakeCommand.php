@@ -47,8 +47,18 @@ class MakeCommand extends Command
             $this->laravel['files']->put(
                 $file,
                 str_replace(
-                    ['DummyNamespace', 'ControllerName', 'ModelName', '$model'],
-                    [config('rulong.route.namespace'), $controllerName . 'Controller', $controllerName, '$' . strtolower($controllerName)],
+                    [
+                        'DummyNamespace',
+                        'ControllerName',
+                        'ModelName',
+                        'model',
+                    ],
+                    [
+                        config('rulong.route.namespace'),
+                        $controllerName . 'Controller',
+                        $controllerName,
+                        strtolower($controllerName),
+                    ],
                     $contents
                 )
             );

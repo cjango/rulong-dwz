@@ -10,14 +10,29 @@ class ControllerName extends Controller
 
     public function index(Request $request)
     {
+        $orderField     = $request->orderField;
+        $orderDirection = $request->orderDirection;
+        $numPerPage     = $request->numPerPage ?: 30;
+
+        $models = ModelName::when($orderField, function ($query) use ($orderField, $orderDirection) {
+            $query->orderBy($orderField, $orderDirection);
+        })->paginate($numPerPage);
+
+        return view('Admin::models.index', compact('models'));
     }
 
     public function create()
     {
+        return view('Admin::models.create');
     }
 
     public function store(Request $request)
     {
+        if (ModelName::create($request->all())) {
+            return $this->success('', 'close');
+        } else {
+            return $this->error();
+        }
     }
 
     public function show(ModelName $model)
@@ -26,13 +41,24 @@ class ControllerName extends Controller
 
     public function edit(ModelName $model)
     {
+        return view('Admin::models.edit', compact('model'));
     }
 
-    public function update(Request $request, $model)
+    public function update(Request $request, ModelName $model)
     {
+        if ($model->update($request->all())) {
+            return $this->success('', 'close');
+        } else {
+            return $this->error();
+        }
     }
 
     public function destroy(ModelName $model)
     {
+        if ($model->delete()) {
+            return $this->success();
+        } else {
+            return $this->error();
+        }
     }
 }
