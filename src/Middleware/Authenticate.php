@@ -4,6 +4,7 @@ namespace RuLong\Panel\Middleware;
 
 use Admin;
 use Closure;
+use Response;
 
 class Authenticate
 {
@@ -11,7 +12,14 @@ class Authenticate
     public function handle($request, Closure $next)
     {
         if (Admin::guest() && !$this->shouldPassThrough($request)) {
-            return redirect(route('RuLong.auth.login'));
+            if ($request->ajax()) {
+                return Response::json([
+                    'statusCode' => 408,
+                    'message'    => '登录超时',
+                ]);
+            } else {
+                return redirect(route('RuLong.auth.login'));
+            }
         }
 
         return $next($request);

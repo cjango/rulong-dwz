@@ -72,7 +72,7 @@ class AuthController extends Controller
                 Admin::user()->logins()->create([
                     'login_ip' => $request->ip(),
                 ]);
-                return $this->success('登录成功');
+                return $this->success('登录成功', 'close');
             } else {
                 return $this->error('用户名或密码错误');
             }

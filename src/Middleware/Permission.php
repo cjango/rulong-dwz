@@ -38,7 +38,11 @@ class Permission
             }
 
             if (!in_array(Route::currentRouteName(), $authed)) {
-                abort(403, 'Unauthorized.');
+                return response()->json([
+                    'statusCode'   => 400,
+                    'message'      => '没有权限访问',
+                    'callbackType' => request()->_navTab ? 'closeCurrentNavTab' : 'closeCurrentDialog',
+                ]);
             }
         }
         return $next($request);
