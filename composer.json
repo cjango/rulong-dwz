@@ -14,8 +14,8 @@
         "mews/captcha": "^2.2"
     },
     "autoload": {
-        "psr-0": {
-            "RuLong\\Panel": "src/"
+        "psr-4": {
+            "RuLong\\Panel\\": "src/"
         },
         "files": [
             "src/helpers.php"
